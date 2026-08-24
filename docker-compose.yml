@@ -1,0 +1,19 @@
+# One-command run:  docker compose up --build
+# Reads settings from your .env file. The SQLite database is persisted in a
+# named volume so games/ratings survive restarts.
+services:
+  chess:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      # store the DB on the persistent volume
+      DATABASE_URL: sqlite+aiosqlite:////data/chess.db
+    volumes:
+      - chess-data:/data
+    restart: unless-stopped
+
+volumes:
+  chess-data:

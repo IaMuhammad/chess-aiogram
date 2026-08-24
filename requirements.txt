@@ -1,0 +1,10 @@
+# Backend dependencies (same as pyproject.toml).
+# Install with:  pip install -r requirements.txt
+fastapi>=0.115
+uvicorn[standard]>=0.32
+aiogram>=3.13
+chess>=1.11
+sqlalchemy[asyncio]>=2.0
+aiosqlite>=0.20
+pydantic>=2.9
+pydantic-settings>=2.5
